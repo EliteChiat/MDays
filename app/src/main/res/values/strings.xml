@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MDays</string>
+    <string name="prompt_username">输入账号</string>
+    <string name="prompt_password">输入密码</string>
+    <string name="prompt_conf_password">确认密码</string>
+    <string name="button_login">登录</string>
+    <string name="button_to_register">没有账号，前去注册</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="to_login">已有账号，直接登录</string>
+    <string name="register">注册</string>
+</resources>
