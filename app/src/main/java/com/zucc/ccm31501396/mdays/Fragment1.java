@@ -1,11 +1,14 @@
 package com.zucc.ccm31501396.mdays;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -47,6 +50,9 @@ public class Fragment1 extends Fragment {
     private RecyclerView mRecyclerView;
     private ScheduleAdapter adapter;
     private Calendar getTime = Calendar.getInstance();
+    private FloatingActionButton add_button;
+    private TextView search_Button;
+    private TextView back_button;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,9 +64,12 @@ public class Fragment1 extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view=inflater.inflate(R.layout.fragment_daily,container,false);
         logininfo_sp = getActivity().getSharedPreferences("loginInfo",MODE_PRIVATE);
+        add_button = (FloatingActionButton)view.findViewById(R.id.fab);
         String username = logininfo_sp.getString("username","");
         mCalendarView = (CalendarView)view.findViewById(R.id.calendarView);
         mRecyclerView = (RecyclerView)view.findViewById(R.id.schedulelist);
+        search_Button = (TextView) view.findViewById(R.id.search);
+        back_button = view.findViewById(R.id.back);
         String year = String.valueOf(getTime.get(Calendar.YEAR));
         String month = String.valueOf(getTime.get(Calendar.MONTH)+1);
         String date = String.valueOf(getTime.get(Calendar.DATE));
@@ -85,6 +94,29 @@ public class Fragment1 extends Fragment {
             }
         });
 
+        add_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),AddSchedule.class);
+                startActivity(intent);
+            }
+        });
+
+        back_button.setOnClickListener(new ViewPager.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        search_Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),SearchSchedule.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
