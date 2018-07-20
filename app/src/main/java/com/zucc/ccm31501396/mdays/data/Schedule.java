@@ -15,6 +15,7 @@ public class Schedule {
      * sNote : 再不写来不及啦！
      * sStatus : 未完成
      * clock : 1
+     * clockId :
      */
 
     private String userName;
@@ -29,6 +30,7 @@ public class Schedule {
     private String sNote;
     private String sStatus;
     private String clock;
+    private String clockId;
 
     public String getUserName() {
         return userName;
@@ -124,5 +126,39 @@ public class Schedule {
 
     public void setClock(String clock) {
         this.clock = clock;
+    }
+
+    public Integer getClockId() {
+        return Integer.parseInt(clockId.trim());
+    }
+
+    public void setClockId(String clockId) {
+        this.clockId = clockId;
+    }
+
+    //    * sDate : 2018-7-18
+    public int getYear(){
+        return Integer.parseInt(sDate.substring(0,4));
+    }
+    public int getMonth(){
+        return Integer.parseInt(sDate.substring(5,6));
+    }
+    public int getDay(){
+        return Integer.parseInt(sDate.substring(7,9));
+    }
+//    * startTime : 08:00
+    public int getHour(){
+        if(startTime.length()==4){
+            return Integer.parseInt(startTime.substring(0,1));
+        }else{
+            return Integer.parseInt(startTime.substring(0,2));
+        }
+    }
+    public int getMin(){
+        if(startTime.length()==4){
+            return Integer.parseInt(startTime.substring(2,4));
+        }else{
+            return Integer.parseInt(startTime.substring(3,5));
+        }
     }
 }

@@ -1,0 +1,93 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.zucc.ccm31501396.mdays.Fragment2">
+
+    <!-- TODO: Update blank fragment layout -->
+    <include layout="@layout/common_toolbar"></include>
+    <LinearLayout
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:background="@drawable/side_nav_bar"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="本月收入"
+            android:textSize="14dp" />
+        <TextView
+            android:id="@+id/shouru"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="0.0"
+            android:textSize="60dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="本月支出"
+            android:textSize="14dp" />
+        <TextView
+            android:id="@+id/zhichu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="0.0"
+            android:textSize="60dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="本月结余"
+            android:textSize="14dp" />
+        <TextView
+            android:id="@+id/jieyu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="0.0"
+            android:textSize="60dp" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listview"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:layout_marginTop="360dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fab"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|end"
+
+        android:src="@drawable/plus_icon"
+        app:backgroundTint="@color/float_button"
+        app:elevation="8dp"/>
+
+    <!--<TextView-->
+        <!--android:id="@+id/hint"-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:textSize="25dp"-->
+        <!--android:text="暂无记录，记一笔吧~"/>-->
+
+</FrameLayout>

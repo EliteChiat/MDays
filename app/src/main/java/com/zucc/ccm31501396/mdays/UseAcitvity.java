@@ -1,5 +1,6 @@
 package com.zucc.ccm31501396.mdays;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -17,11 +18,15 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class UseAcitvity extends AppCompatActivity {
-
+    private static Context sContest = null;
     private ViewPager mViewPager;
     private BottomNavigationView mBottonmNavigationView;
     private TextView back_button;
     private Toolbar mToolbar;
+
+    public static Context getContext() {
+        return sContest;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

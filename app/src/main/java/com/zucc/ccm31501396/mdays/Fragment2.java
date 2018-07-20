@@ -51,6 +51,7 @@ public class Fragment2 extends Fragment {
     private SharedPreferences login_sp;
     private FloatingActionButton addAccount_button;
     private TextView back_button;
+    private TextView search_button;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -67,6 +68,7 @@ public class Fragment2 extends Fragment {
         outcome_text = view.findViewById(R.id.zhichu);
         last_text = view.findViewById(R.id.jieyu);
         back_button = view.findViewById(R.id.back);
+        search_button = view.findViewById(R.id.search);
         login_sp = this.getActivity().getSharedPreferences("loginInfo",MODE_PRIVATE);
         userName = login_sp.getString("username","");
         addAccount_button = view.findViewById(R.id.fab);
@@ -76,6 +78,13 @@ public class Fragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(),AddAccountActivity.class);
+                startActivity(intent);
+            }
+        });
+        search_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(),SearchAccount.class);
                 startActivity(intent);
             }
         });
@@ -143,20 +152,4 @@ public class Fragment2 extends Fragment {
         return view;
     }
 
-//    private void initdata() {
-//        List<Account> list1= new ArrayList<Account>();
-//        List<Account> list2= new ArrayList<Account>();
-//        list1.add(new Account(0, "10", "工作收入", 2700, new Date()));
-//        list2.add(new Account(1, "01", "餐饮食品", -200, new Date()));
-//        list2.add(new Account(2, "02", "衣服饰品", -120, new Date()));
-//        list2.add(new Account(3, "04", "行车交通", -330, new Date()));
-//        list2.add(new Account(3, "04", "行车交通", -330, new Date()));
-//        list2.add(new Account(3, "04", "行车交通", -330, new Date()));
-//        list2.add(new Account(3, "04", "行车交通", -330, new Date()));
-//        list2.add(new Account(3, "04", "行车交通", -330, new Date()));
-//        list.addAll(list1);
-//        list.addAll(list2);
-//        list.add(0, null);
-//        list.add(list1.size() + 1, null);
-//    }
 }

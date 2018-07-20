@@ -61,6 +61,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
         holder.sTitle.setText(schedule.getSTitle());
         holder.startTime.setText(schedule.getStartTime());
         holder.endTime.setText(schedule.getEndTime());
+        holder.place.setText(schedule.getPlace());
         holder.sId.setText(schedule.getSId());
     }
 

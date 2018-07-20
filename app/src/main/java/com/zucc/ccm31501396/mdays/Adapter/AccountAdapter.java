@@ -76,6 +76,8 @@ public class AccountAdapter extends BaseAdapter{
             viewHolder.price_text.setText(String.valueOf(list.get(i).getPrice()));
             viewHolder.note_text.setText(list .get(i).getNote());
             viewHolder.price_text.setTextColor(Color.GREEN);
+            viewHolder.type_img.setImageResource(R.drawable.income);
+
         }else{
             viewHolder.id_text.setText(list.get(i).getAccountId());
             viewHolder.type_text.setText(list.get(i).getTypeName());
@@ -83,6 +85,7 @@ public class AccountAdapter extends BaseAdapter{
             viewHolder.price_text.setText(String.valueOf(list.get(i).getPrice()));
             viewHolder.note_text.setText(list.get(i).getNote());
             viewHolder.price_text.setTextColor(Color.RED);
+            viewHolder.type_img.setImageResource(typeImg(list.get(i).getTypeName()));
         }
 
 
@@ -97,5 +100,21 @@ public class AccountAdapter extends BaseAdapter{
         TextView price_text;
         TextView note_text;
         RelativeLayout content;
+    }
+
+    private int typeImg(String typeString){
+        String ImgRes;
+        if(typeString.equals("食品支出")){
+            return R.drawable.food;
+        }else if(typeString.equals("交通支出")){
+            return R.drawable.jiaotong;
+        }else if(typeString.equals("娱乐支出")){
+            return R.drawable.yule;
+        }else if(typeString.equals("医药支出")){
+            return R.drawable.yiliao;
+        }else if(typeString.equals("其他支出")){
+            return R.drawable.others;
+        }
+        return R.drawable.type_study;
     }
 }

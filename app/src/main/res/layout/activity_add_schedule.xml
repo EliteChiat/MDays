@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddSchedule">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="添加日程"
+            android:textSize="60dp"
+            />
+
+        <!--标题-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30dp"
+                android:text="标题:"/>
+            <EditText
+                android:id="@+id/title_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <!--日期-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30dp"
+                android:text="日期："/>
+            <EditText
+                android:id="@+id/date_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <!--类型-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30dp"
+                android:text="类型："/>
+            <Spinner
+                android:id="@+id/stype_spinner"
+                android:spinnerMode="dropdown"
+                android:layout_width="120dp"
+                android:layout_height="match_parent">
+            </Spinner>
+
+        </LinearLayout>
+
+        <!--开始时间-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30dp"
+                android:text="开始时间:"/>
+            <EditText
+                android:id="@+id/startTime_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30dp" />
+        </LinearLayout>
+
+        <!--结束时间-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30dp"
+                android:text="结束时间:"/>
+            <EditText
+                android:id="@+id/endTime_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30dp" />
+        </LinearLayout>
+
+        <!--重要性-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:spinnerMode="dropdown"
+                android:textSize="30dp"
+                android:text="重要性："/>
+            <Spinner
+                android:id="@+id/priority_spinner"
+                android:layout_width="120dp"
+                android:layout_height="match_parent"
+                />
+        </LinearLayout>
+
+        <!--地点-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30dp"
+                android:text="地点："/>
+            <EditText
+                android:id="@+id/place_edit"
+                android:layout_width="250dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <!--备注-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="30dp"
+                android:text="备注:"/>
+            <EditText
+                android:id="@+id/note_edit"
+                android:layout_width="230dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <!--上传按钮-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <Button
+                android:id="@+id/up_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:text="上传"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>
