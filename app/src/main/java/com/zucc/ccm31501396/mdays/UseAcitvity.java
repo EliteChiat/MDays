@@ -38,7 +38,6 @@ public class UseAcitvity extends AppCompatActivity {
         final ArrayList<Fragment> mfragments = new ArrayList<>(3);
         mfragments.add(new Fragment1());
         mfragments.add(new Fragment2());
-        mfragments.add(new Fragment3());
 
         FragmentPagerAdapter mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()){
             @Override
@@ -65,9 +64,9 @@ public class UseAcitvity extends AppCompatActivity {
                     case R.id.navigation_dashboard:
                         mViewPager.setCurrentItem(1);
                         break;
-                    case R.id.navigation_notifications:
-                        mViewPager.setCurrentItem(2);
-                        break;
+//                    case R.id.navigation_notifications:
+//                        mViewPager.setCurrentItem(2);
+//                        break;
                 }
                 return false;
             }

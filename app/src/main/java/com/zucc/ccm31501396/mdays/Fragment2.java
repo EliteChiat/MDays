@@ -115,11 +115,11 @@ public class Fragment2 extends Fragment {
 
                             @Override
                             public void run() {
-                                adapter = new AccountAdapter(getActivity(), result, getActivity().getPackageName());
+                                adapter = new AccountAdapter(getActivity(), result);
                                 listview.setAdapter(adapter);
-                                income_text.setText(String.valueOf(price));
-                                outcome_text.setText(String.valueOf(outcome));
-                                last_text.setText(String.valueOf(price+outcome));
+                                income_text.setText(String.valueOf(price)+"元");
+                                outcome_text.setText("-"+String.valueOf(outcome)+"元");
+                                last_text.setText(String.valueOf(price-outcome)+"元");
                             }
                         });
                     }
@@ -144,7 +144,6 @@ public class Fragment2 extends Fragment {
                 Intent intent=new Intent(getActivity(),SingleAccount.class);
                 intent.putExtra("result",account.getAccountId());
                 startActivity(intent);
-
                 return false;
             }
         });

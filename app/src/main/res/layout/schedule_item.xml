@@ -54,6 +54,18 @@
                 android:textColor="#9f9f9f"
                 android:textSize="14sp"
                 android:text="楼下小卖部" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:text="2018-07-20"/>
+            </LinearLayout>
             <TextView
                 android:id="@+id/sId"
                 android:layout_width="wrap_content"

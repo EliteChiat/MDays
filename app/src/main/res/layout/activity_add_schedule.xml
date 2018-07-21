@@ -27,7 +27,7 @@
                 android:text="标题:"/>
             <EditText
                 android:id="@+id/title_edit"
-                android:layout_width="wrap_content"
+                android:layout_width="260dp"
                 android:layout_height="match_parent" />
         </LinearLayout>
 
@@ -42,7 +42,7 @@
                 android:text="日期："/>
             <EditText
                 android:id="@+id/date_edit"
-                android:layout_width="wrap_content"
+                android:layout_width="240dp"
                 android:layout_height="match_parent" />
         </LinearLayout>
 
@@ -75,7 +75,7 @@
                 android:text="开始时间:"/>
             <EditText
                 android:id="@+id/startTime_text"
-                android:layout_width="wrap_content"
+                android:layout_width="230dp"
                 android:layout_height="match_parent"
                 android:textSize="30dp" />
         </LinearLayout>
@@ -91,7 +91,7 @@
                 android:text="结束时间:"/>
             <EditText
                 android:id="@+id/endTime_text"
-                android:layout_width="wrap_content"
+                android:layout_width="230dp"
                 android:layout_height="match_parent"
                 android:textSize="30dp" />
         </LinearLayout>
@@ -121,7 +121,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:textSize="30dp"
-                android:text="地点："/>
+                android:text="地点:"/>
             <EditText
                 android:id="@+id/place_edit"
                 android:layout_width="250dp"

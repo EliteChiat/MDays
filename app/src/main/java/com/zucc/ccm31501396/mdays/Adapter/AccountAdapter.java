@@ -1,19 +1,26 @@
 package com.zucc.ccm31501396.mdays.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.zucc.ccm31501396.mdays.R;
+import com.zucc.ccm31501396.mdays.SearchAccount;
+import com.zucc.ccm31501396.mdays.SingleAccount;
+import com.zucc.ccm31501396.mdays.SingleSchedule;
 import com.zucc.ccm31501396.mdays.data.Account;
+import com.zucc.ccm31501396.mdays.data.Schedule;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -23,15 +30,13 @@ import java.util.List;
  * Created by mac on 2018/7/13.
  */
 
-public class AccountAdapter extends BaseAdapter{
+public class AccountAdapter extends BaseAdapter implements View.OnClickListener{
     Context context;
     ArrayList<Account> list;
-    String pack;
 
-    public AccountAdapter(Context context, ArrayList<Account> list, String pack){
+    public AccountAdapter(Context context, ArrayList<Account> list){
         this.context=context;
         this.list=list;
-        this.pack=pack;
     }
 
     @Override
@@ -50,46 +55,47 @@ public class AccountAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int i, View convertView, ViewGroup parent) {
+    public View getView(final int i, View convertView, ViewGroup parent) {
         View view;
-        ViewHolder viewHolder;
+        final ViewHolder viewHolder;
         if (convertView == null){
             view = LayoutInflater.from(context).inflate(R.layout.account_item,null);
             viewHolder = new ViewHolder();
+            viewHolder.content = view.findViewById(R.id.content);
             viewHolder.id_text =  view.findViewById(R.id.accountid);
             viewHolder.type_img = view.findViewById(R.id.img);
             viewHolder.type_text = view.findViewById(R.id.type);
             viewHolder.date_text = view.findViewById(R.id.date);
             viewHolder.price_text =view.findViewById(R.id.number);
-            viewHolder.note_text = view.findViewById(R.id.note);
             viewHolder.content = view.findViewById(R.id.content);
             view.setTag(viewHolder);
         }else {
             view = convertView;
             viewHolder =(ViewHolder) view.getTag();
         }
-
-        if(list.get(i).getPrice()>0){
+        if(list.get(i).getTypeName().equals("工资收入")){
             viewHolder.id_text.setText(list.get(i).getAccountId());
-            viewHolder.type_text.setText(list.get(i).getTypeName());
+            viewHolder.type_text.setText(list.get(i).getNote());
             viewHolder.date_text.setText(list.get(i).getDate());
-            viewHolder.price_text.setText(String.valueOf(list.get(i).getPrice()));
-            viewHolder.note_text.setText(list .get(i).getNote());
+            viewHolder.price_text.setText(String.valueOf(list.get(i).getPrice())+"元");
             viewHolder.price_text.setTextColor(Color.GREEN);
             viewHolder.type_img.setImageResource(R.drawable.income);
 
         }else{
             viewHolder.id_text.setText(list.get(i).getAccountId());
-            viewHolder.type_text.setText(list.get(i).getTypeName());
+            viewHolder.type_text.setText(list.get(i).getNote());
             viewHolder.date_text.setText(list.get(i).getDate());
-            viewHolder.price_text.setText(String.valueOf(list.get(i).getPrice()));
-            viewHolder.note_text.setText(list.get(i).getNote());
+            viewHolder.price_text.setText("-"+String.valueOf(list.get(i).getPrice())+"元");
             viewHolder.price_text.setTextColor(Color.RED);
             viewHolder.type_img.setImageResource(typeImg(list.get(i).getTypeName()));
         }
 
-
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 
     class ViewHolder{
@@ -98,7 +104,6 @@ public class AccountAdapter extends BaseAdapter{
         TextView type_text;
         TextView date_text;
         TextView price_text;
-        TextView note_text;
         RelativeLayout content;
     }
 

@@ -17,7 +17,7 @@
             />
         <EditText
             android:id="@+id/ed_price"
-            android:layout_width="wrap_content"
+            android:layout_width="130dp"
             android:layout_height="match_parent"
             android:inputType="numberDecimal"/>
     </LinearLayout>
@@ -60,7 +60,7 @@
             android:textSize="30dp"/>
         <EditText
             android:id="@+id/ed_note"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="match_parent"
             android:maxLines="5"
             android:textSize="30dp"/>

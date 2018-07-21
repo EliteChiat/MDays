@@ -33,6 +33,22 @@ public class JsonUtil {
 
         return null;
     }
+    //用于处理
+    public static ArrayList<Account> DealAccountSpend(String response){
+        JSONObject jsonObject = null;
+        try {
+            jsonObject = new JSONObject(response);
+            JSONArray jsonArray = jsonObject.getJSONArray("result");
+            String jsonData = jsonArray.toString();
+            Gson gson = new Gson();
+            ArrayList<Account> result = gson.fromJson(jsonData,new TypeToken<List<Account>>(){}.getType());
+            return result;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
     //用于处理单个账单对象
     public static Account DealSingleAccountResponce(String response){
         JSONObject jsonObject = null;

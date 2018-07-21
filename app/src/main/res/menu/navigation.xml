@@ -11,9 +11,9 @@
         android:icon="@drawable/ic_account"
         android:title="账单" />
 
-    <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_money"
-        android:title="投资理财" />
+    <!--<item-->
+        <!--android:id="@+id/navigation_notifications"-->
+        <!--android:icon="@drawable/ic_money"-->
+        <!--android:title="投资理财" />-->
 
 </menu>

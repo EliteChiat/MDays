@@ -6,14 +6,19 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.zucc.ccm31501396.mdays.Adapter.AccountAdapter;
 import com.zucc.ccm31501396.mdays.Util.HttpUtil;
 import com.zucc.ccm31501396.mdays.Util.JsonUtil;
@@ -23,7 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.text.DecimalFormat;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +37,7 @@ import okhttp3.FormBody;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class SearchAccount extends AppCompatActivity {
+public class SearchAccount extends AppCompatActivity implements OnChartValueSelectedListener{
     private SharedPreferences user_sp;
     private Float sumSend;
     private Float typeFood;
@@ -49,6 +54,7 @@ public class SearchAccount extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mPieChart = (PieChart)findViewById(R.id.mPieChart);
         setContentView(R.layout.activity_search_account);
         user_sp = getSharedPreferences("loginInfo",MODE_PRIVATE);
         userName = user_sp.getString("username","");
@@ -65,7 +71,20 @@ public class SearchAccount extends AppCompatActivity {
                 .build();
         forAccountList(URL,requestBody);
 
+        mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Account account = (Account)parent.getItemAtPosition(position);
+                Intent intent=new Intent(SearchAccount.this,SingleAccount.class);
+                intent.putExtra("result",account.getAccountId());
+                startActivity(intent);
+                return false;
+            }
+        });
+
     }
+
+
 
     private void sumAccountTypePrice(Account account){
         switch(account.getTypeName()){
@@ -121,7 +140,8 @@ public class SearchAccount extends AppCompatActivity {
         mPieChart.setHighlightPerTapEnabled(true);
 
         //变化监听
-//        mPieChart.setOnChartValueSelectedListener(this);
+        mPieChart.setOnChartValueSelectedListener(this);
+
         initPieEntry(typeFood,"食品支出");
         initPieEntry(typeJiaotong,"交通支出");
         initPieEntry(typeYule,"娱乐支出");
@@ -150,7 +170,29 @@ public class SearchAccount extends AppCompatActivity {
         mPieChart.highlightValues(null);
         //刷新
         mPieChart.invalidate();
+        mPieChart.setEntryLabelColor(Color.DKGRAY);
+        mPieChart.setEntryLabelTextSize(12f);
     }
+    @Override
+    public void onValueSelected(Entry e, Highlight h) {
+        String sType = ((PieEntry)e).getLabel();
+        ArrayList<Account> reflsh = new ArrayList<>();
+        for(Account Singletype : result){
+            if(sType.equals(Singletype.getTypeName().toString())){
+                reflsh.add(Singletype);
+            }
+        }
+        AccountAdapter adapter = new AccountAdapter(this,reflsh);
+        mListView.setAdapter(adapter);
+
+    }
+
+    @Override
+    public void onNothingSelected() {
+        AccountAdapter adapter = new AccountAdapter(this,result);
+        mListView.setAdapter(adapter);
+    }
+
 
     private void forAccountList(String address, RequestBody requestBody){
         HttpUtil.postOKHttpRequest(address,requestBody, new okhttp3.Callback() {
@@ -175,8 +217,14 @@ public class SearchAccount extends AppCompatActivity {
                                 for(Account account:result){
                                     sumAccountTypePrice(account);
                                 }
+                                ArrayList<Account> reflsh = new ArrayList<>();
+                                for(Account account:result){
+                                    if(!account.getTypeName().equals("工资收入")){
+                                        reflsh.add(account);
+                                    }
+                                }
                                 initView();
-                                AccountAdapter adapter = new AccountAdapter(SearchAccount.this,result);
+                                AccountAdapter adapter = new AccountAdapter(SearchAccount.this,reflsh);
                                 mListView.setAdapter(adapter);
                             }
                         });

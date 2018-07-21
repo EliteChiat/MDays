@@ -10,65 +10,85 @@
     <LinearLayout
         android:layout_marginTop="60dp"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:orientation="vertical"
+        android:layout_height="80dp"
+        android:orientation="horizontal"
         android:background="@drawable/side_nav_bar"
         >
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:text="本月收入"
-            android:textSize="14dp" />
-        <TextView
-            android:id="@+id/shouru"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:text="0.0"
-            android:textSize="60dp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:text="本月支出"
-            android:textSize="14dp" />
-        <TextView
-            android:id="@+id/zhichu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:text="0.0"
-            android:textSize="60dp" />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:text="本月结余"
-            android:textSize="14dp" />
-        <TextView
-            android:id="@+id/jieyu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/white"
-            android:text="0.0"
-            android:textSize="60dp" />
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="本月收入"
+                android:textSize="14dp" />
+            <TextView
+                android:id="@+id/shouru"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="0.0"
+                android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="本月支出"
+                android:textSize="14dp" />
+            <TextView
+                android:id="@+id/zhichu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="0.0"
+                android:textSize="20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="本月结余"
+                android:textSize="14dp" />
+            <TextView
+                android:id="@+id/jieyu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="0.0"
+                android:textSize="20dp" />
+        </LinearLayout>
     </LinearLayout>
 
     <ListView
         android:id="@+id/listview"
         android:divider="@null"
         android:dividerHeight="0dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="140dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="420dp">
     </ListView>
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"

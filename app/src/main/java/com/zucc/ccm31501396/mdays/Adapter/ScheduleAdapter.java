@@ -11,6 +11,8 @@ import com.zucc.ccm31501396.mdays.R;
 import com.zucc.ccm31501396.mdays.SingleSchedule;
 import com.zucc.ccm31501396.mdays.data.Schedule;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHolder>{
@@ -27,6 +29,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
         TextView endTime;
         TextView place;
         TextView sId;
+        TextView date;
         public ViewHolder(View view) {
             super(view);
             ScheduleView = view;
@@ -35,6 +38,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
             endTime = (TextView) view.findViewById(R.id.endTime);
             place = (TextView) view.findViewById(R.id.place);
             sId = (TextView) view.findViewById(R.id.sId);
+            date = (TextView) view.findViewById(R.id.date);
         }
     }
     @Override
@@ -63,6 +67,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.ViewHo
         holder.endTime.setText(schedule.getEndTime());
         holder.place.setText(schedule.getPlace());
         holder.sId.setText(schedule.getSId());
+        holder.date.setText(schedule.getSDate());
     }
 
     @Override

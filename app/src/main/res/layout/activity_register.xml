@@ -44,7 +44,8 @@
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="请输入密码"/>
+                android:hint="请输入密码"
+                android:inputType="numberPassword"/>
         </LinearLayout>
 
         <LinearLayout
@@ -54,6 +55,7 @@
                 android:id="@+id/conf_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="numberPassword"
                 android:hint="请再次确认密码"/>
         </LinearLayout>
 

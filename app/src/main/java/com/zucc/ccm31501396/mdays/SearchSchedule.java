@@ -1,5 +1,6 @@
 package com.zucc.ccm31501396.mdays;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -55,6 +56,15 @@ public class SearchSchedule extends AppCompatActivity {
         search_spinner.setAdapter(search_adapter);
         user_sp= getSharedPreferences("loginInfo",MODE_PRIVATE);
         userName = user_sp.getString("username","");
+
+        back_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SearchSchedule.this,UseAcitvity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         search_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
